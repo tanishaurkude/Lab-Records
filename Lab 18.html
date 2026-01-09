@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Example</title>
+    <style>
+        #listContainer {
+            margin: 20px auto;
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #333;
+        }
+        li {
+            margin: 5px 0;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>DOM Manipulation Demo</h1>
+
+<div id="listContainer">
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+</div>
+
+<input type="text" id="newItem" placeholder="Enter new item">
+<button onclick="addItem()">Add Item</button>
+<button onclick="removeLastItem()">Remove Last Item</button>
+<button onclick="modifyFirstItem()">Modify First Item</button>
+
+<script>
+    const list = document.getElementById('myList');
+
+    
+    function addItem() {
+        const input = document.getElementById('newItem');
+        const value = input.value.trim();
+        if(value === "") {
+            alert("Enter a value!");
+            return;
+        }
+        const li = document.createElement('li');
+        li.innerText = value; 
+        list.appendChild(li); 
+        input.value = "";
+    }
+
+   
+    function removeLastItem() {
+        if(list.lastElementChild) {
+            list.removeChild(list.lastElementChild); 
+        } else {
+            alert("List is empty!");
+        }
+    }
+
+   
+    function modifyFirstItem() {
+        if(list.firstElementChild) {
+            list.firstElementChild.innerText = "Modified Item 1"; 
+        } else {
+            alert("List is empty!");
+        }
+    }
+</script>
+
+</body>
+</html>
