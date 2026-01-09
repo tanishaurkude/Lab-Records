@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    <br>
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate(operator) {
+            
+            let number1 = parseFloat(document.getElementById('num1').value);
+            let number2 = parseFloat(document.getElementById('num2').value);
+            let output;
+
+            
+            if (isNaN(number1) || isNaN(number2)) {
+                output = "Please enter valid numbers!";
+            } else {
+                
+                switch(operator) {
+                    case '+':
+                        output = number1 + number2;
+                        break;
+                    case '-':
+                        output = number1 - number2;
+                        break;
+                    case '*':
+                        output = number1 * number2;
+                        break;
+                    case '/':
+                        if(number2 === 0) {
+                            output = "Cannot divide by zero!";
+                        } else {
+                            output = number1 / number2;
+                        }
+                        break;
+                    default:
+                        output = "Invalid operation";
+                }
+            }
+
+          
+            document.getElementById('result').innerText = "Result: " + output;
+        }
+    </script>
+
+</body>
+</html>
