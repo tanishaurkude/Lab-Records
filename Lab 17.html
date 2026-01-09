@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Listeners Example</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            font-weight: bold;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Event Listeners Demo</h1>
+
+<div id="box">Hover or Click Me!</div>
+
+<input type="text" id="textInput" placeholder="Type something">
+
+<button id="removeBtn">Remove Box Click Event</button>
+
+<script>
+    const box = document.getElementById('box');
+    const textInput = document.getElementById('textInput');
+    const removeBtn = document.getElementById('removeBtn');
+
+    
+    function boxClick() {
+        box.style.backgroundColor = box.style.backgroundColor === 'lightblue' ? 'lightgreen' : 'lightblue';
+    }
+
+    
+    function boxHover() {
+        box.innerText = "Mouse Over!";
+    }
+
+    function boxOut() {
+        box.innerText = "Hover or Click Me!";
+    }
+
+   
+    function keyPressHandler(event) {
+        console.log("Key pressed: " + event.key);
+    }
+
+   
+    box.addEventListener('click', boxClick);
+    box.addEventListener('mouseover', boxHover);
+    box.addEventListener('mouseout', boxOut);
+    textInput.addEventListener('keydown', keyPressHandler);
+
+   
+    removeBtn.addEventListener('click', function() {
+        box.removeEventListener('click', boxClick);
+        alert("Click event removed from box!");
+    });
+</script>
+
+</body>
+</html>
