@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Conditionals & Loops</title>
+</head>
+<body>
+
+<h1>JavaScript Conditionals and Loops</h1>
+
+
+<h2>Conditional Example</h2>
+<input type="number" id="age" placeholder="Enter your age">
+<button onclick="checkAge()">Check Age</button>
+<p id="condResult"></p>
+
+
+<h2>Loops Example</h2>
+<button onclick="runLoops()">Run Loops</button>
+<p id="loopResult"></p>
+
+<script>
+    
+    function checkAge() {
+        let age = parseInt(document.getElementById('age').value);
+        let result;
+        if (isNaN(age)) {
+            result = "Please enter a valid number!";
+        } else if (age < 18) {
+            result = "You are a minor.";
+        } else if (age < 60) {
+            result = "You are an adult.";
+        } else {
+            result = "You are a senior.";
+        }
+        document.getElementById('condResult').innerText = result;
+    }
+
+    
+    function runLoops() {
+        let output = "";
+
+        
+        output += "For loop (1 to 5): ";
+        for (let i = 1; i <= 5; i++) {
+            output += i + " ";
+        }
+        output += "\n";
+
+       
+        output += "While loop (5 to 1): ";
+        let j = 5;
+        while (j >= 1) {
+            output += j + " ";
+            j--;
+        }
+        output += "\n";
+
+      
+        output += "Do…While loop (1 to 3): ";
+        let k = 1;
+        do {
+            output += k + " ";
+            k++;
+        } while (k <= 3);
+
+        document.getElementById('loopResult').innerText = output;
+    }
+</script>
+
+</body>
+</html>
