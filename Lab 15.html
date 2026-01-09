@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+
+<h1 id="title">Original Title</h1>
+
+<p class="info">This is the first paragraph.</p>
+<p class="info">This is the second paragraph.</p>
+
+<button onclick="changeTitle()">Change Title</button>
+<button onclick="changeParagraph()">Change Paragraph</button>
+
+<script>
+   
+    function changeTitle() {
+        document.getElementById('title').innerHTML = "Title Changed!";
+    }
+
+    
+    function changeParagraph() {
+        document.querySelector('.info').innerHTML = "Paragraph changed using querySelector!";
+    }
+</script>
+
+</body>
+</html>
